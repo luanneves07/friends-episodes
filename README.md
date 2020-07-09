@@ -4,6 +4,42 @@ This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
+## Hands-on (Release mode)
+----
+### **DataBase**
+
+This project uses a NoSQL-DB. The dataset provided contains some friends episodes and other details.
+A docker image was created to provision the data to run this project. To start the DB follow the steps belo:
+
+Download docker image
+```$ docker run --network host --name mongo_inf335 -d -t lneves07/mongo-inf335-friends``` 
+
+Execute mongoRestore
+```$ docker exec -it mongo_inf335 bash -c "cd /tmp && mongorestore -d friends"``` 
+
+### **Project**
+
+You can download a docker imag to run this project by following the steps below:
+
+```$ docker run -i --rm --network host lneves07/inf335-friends```
+
+### **Test**
+
+If you want to see the project working, follow the link and change the final with the season of your desire.
+This will give all episodes of the season.
+> http://localhost:8080/season/1
+
+If you want to know about only one episode
+> http://localhost:8080/name/EPISODE%20NAME
+
+**Another endpoints:**
+
+http://localhost:8080/friends (Show info about the project)
+http://localhost:8080/health (Show project health state)
+http://localhost:8080/season/ (Show all episodes of friends)
+
+----
+
 ## Running the application in dev mode
 
 You can run your application in dev mode that enables live coding using:
